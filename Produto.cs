@@ -2,11 +2,11 @@ namespace WeShop.obj
 {
     public class Produto
     {
-        private int CodigoProduto { get; set; }
-        private string Descricao { get; set; }
-        private string Marca { get; set; }
-        private int QuantidadeDisponivel { get; set;}
-        public float Valor { get; set; }
+        private int CodigoProduto;
+        private string Descricao;
+        private string Marca;
+        private int QuantidadeDisponivel;
+        public float Valor;
 
         public Produto(int cod, string desc, string marca, float val ){ 
           
@@ -27,7 +27,7 @@ namespace WeShop.obj
         }       
 
         public void EntradaEstoque(int qtd){             
-            QuantidadeDisponivel =QuantidadeDisponivel + qtd;
+            QuantidadeDisponivel = QuantidadeDisponivel + qtd;
         }
         
     }
