@@ -1,5 +1,4 @@
-namespace WeShop.obj
-{
+
     public class Produto
     {
         private int CodigoProduto;
@@ -30,5 +29,16 @@ namespace WeShop.obj
             QuantidadeDisponivel = QuantidadeDisponivel + qtd;
         }
         
+        public string EstoqueAtual(){
+
+            string estoque = string.Format("Produto:   {0}\n"+
+                                           "Marca:      {1}\n"+
+                                           "Unidades:   {2}\n"+
+                                           "_______________\n"+
+                                           "\n", Descricao, Marca, QuantidadeDisponivel);
+
+                                           return estoque;
+        }
+        
+        
     }
-}

@@ -1,0 +1,16 @@
+C:\Users\lamontanari\source\repos\WeShop\bin\Debug\net5.0\WeShop.exe
+C:\Users\lamontanari\source\repos\WeShop\bin\Debug\net5.0\WeShop.deps.json
+C:\Users\lamontanari\source\repos\WeShop\bin\Debug\net5.0\WeShop.runtimeconfig.json
+C:\Users\lamontanari\source\repos\WeShop\bin\Debug\net5.0\WeShop.runtimeconfig.dev.json
+C:\Users\lamontanari\source\repos\WeShop\bin\Debug\net5.0\WeShop.dll
+C:\Users\lamontanari\source\repos\WeShop\bin\Debug\net5.0\ref\WeShop.dll
+C:\Users\lamontanari\source\repos\WeShop\bin\Debug\net5.0\WeShop.pdb
+C:\Users\lamontanari\source\repos\WeShop\obj\Debug\net5.0\WeShop.csproj.AssemblyReference.cache
+C:\Users\lamontanari\source\repos\WeShop\obj\Debug\net5.0\WeShop.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lamontanari\source\repos\WeShop\obj\Debug\net5.0\WeShop.AssemblyInfoInputs.cache
+C:\Users\lamontanari\source\repos\WeShop\obj\Debug\net5.0\WeShop.AssemblyInfo.cs
+C:\Users\lamontanari\source\repos\WeShop\obj\Debug\net5.0\WeShop.csproj.CoreCompileInputs.cache
+C:\Users\lamontanari\source\repos\WeShop\obj\Debug\net5.0\WeShop.dll
+C:\Users\lamontanari\source\repos\WeShop\obj\Debug\net5.0\ref\WeShop.dll
+C:\Users\lamontanari\source\repos\WeShop\obj\Debug\net5.0\WeShop.pdb
+C:\Users\lamontanari\source\repos\WeShop\obj\Debug\net5.0\WeShop.genruntimeconfig.cache

@@ -1,4 +1,4 @@
-using WeShop.obj;
+using WeShop;
 
 
 class Calcado : Produto
