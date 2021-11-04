@@ -31,10 +31,10 @@
         
         public string EstoqueAtual(){
 
-            string estoque = string.Format("Produto:   {0}\n"+
+            string estoque = string.Format("Produto:    {0}\n"+
                                            "Marca:      {1}\n"+
                                            "Unidades:   {2}\n"+
-                                           "_______________\n"+
+                                           "_________________________\n"+
                                            "\n", Descricao, Marca, QuantidadeDisponivel);
 
                                            return estoque;
