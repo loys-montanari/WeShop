@@ -7,8 +7,8 @@ class Calcado : Produto
     private string Tipo; 
     private string Cor;
 
-    public Calcado(int cod, string desc, string marca, float val, string tam, string tp, string c):
-    base(cod, desc, marca, val)
+    public Calcado( string desc, string marca, float val, string tam, string tp, string c):
+    base( desc, marca, val)
     {
           Tamanho = tam;
           Tipo = tp;  
