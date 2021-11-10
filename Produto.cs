@@ -1,35 +1,40 @@
 
     public class Produto
-    {
-        private string Descricao;
-        private string Marca;
-        private int QuantidadeDisponivel;
-        public float Valor;
-        public string Tamanho { get; set; }
-        public Produto( string desc, string marca, float val ){ 
+    {   
+        private int codproduto;
+        private string descricao;
+        private string marca;
+        private int quantidadedisponivel;
+        public float valor;
+        public string tamanho { get; set; }
+        
+        public Produto( int cod, string desc, string m, float val ){ 
           
-          Descricao = desc;
-          Marca = marca;
-          QuantidadeDisponivel = 0;
-          Valor = val;
+          codproduto = cod;
+          descricao = desc;
+          marca = m;
+          quantidadedisponivel = 0;
+          valor = val;
 
         }
         public string getProduto(){
-            return Descricao;
+            return descricao;
         }
          public int getDisponivel(){
-            return QuantidadeDisponivel;
+            return quantidadedisponivel;
         }       
         public void EntradaProduto(int qtd){             
-            QuantidadeDisponivel = QuantidadeDisponivel + qtd;
+            quantidadedisponivel = quantidadedisponivel + qtd;
         }      
         public string EstoqueAtual(){
 
-            string estoque = string.Format("Produto:    {0}\n"+
-                                           "Marca:      {1}\n"+
-                                           "Unidades:   {2}\n"+
+            string estoque = string.Format("Codigo:     {0}\n"+
+                                           "Produto:    {1}\n"+
+                                           "Marca:      {2}\n"+
+                                           "Tamanho:    {3}\n"+
+                                           "Unidades:   {4}\n"+
                                            "_________________________\n"+
-                                           "\n", Descricao, Marca, QuantidadeDisponivel);
+                                           "\n", codproduto, descricao, marca, tamanho, quantidadedisponivel);
 
                                            return estoque;
         }
