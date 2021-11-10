@@ -6,15 +6,17 @@
         private string marca;
         private int quantidadedisponivel;
         public float valor;
-        public string tamanho { get; set; }
-        
-        public Produto( int cod, string desc, string m, float val ){ 
+       private string cor;
+       private string tamanho;     
+        public Produto( int cod, string desc, string m, float val, string c, string tam){ 
           
           codproduto = cod;
           descricao = desc;
           marca = m;
           quantidadedisponivel = 0;
           valor = val;
+          cor = c;
+          tamanho = tam;
 
         }
         public string getProduto(){
@@ -37,7 +39,8 @@
                                            "\n", codproduto, descricao, marca, tamanho, quantidadedisponivel);
 
                                            return estoque;
-        }
+        }    
+    
         
         
     }
