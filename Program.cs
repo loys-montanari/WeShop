@@ -7,12 +7,25 @@ namespace WeShop
         static void Main(string[] args)
         {   
             int menuinicial;
+            string parceira;
             string nomeusuario;
+            int decisao;
 
             //cadastro de produtos
             Produto blusa_branca_p  = new Produto(1, "Blusa Branca", "Nike", 59.9f, "Branco", "P");
             Produto blusa_branca_m  = new Produto(2, "Blusa Branca", "Nike", 59.9f, "Branco", "m");
             Produto blusa_branca_g  = new Produto(3, "Blusa Branca", "Nike", 59.9f, "Branco", "g");
+
+            Produto blusa_preta_p  = new Produto(4, "Blusa Branca", "adidas", 49.9f, "Branco", "P");
+            Produto blusa_preta_m  = new Produto(5, "Blusa Branca", "adidas", 49.9f, "Branco", "m");
+            Produto blusa_preta_g  = new Produto(6, "Blusa Branca", "adidas", 49.9f, "Branco", "g");
+            
+            Produto jaqueta_p  = new Produto(7, "Blusa Branca", "nike", 149.9f, "Branco", "P");
+            Produto jaqueta_m  = new Produto(8, "Blusa Branca", "adidas", 149.9f, "Branco", "m");
+            Produto jaqueta_g  = new Produto(9, "Blusa Branca", "adidas", 149.9f, "Branco", "g");
+
+            Produto calça_m  = new Produto(10, "Blusa Branca", "nike", 49.9f, "Branco", "m");
+            Produto calça_g  = new Produto(11, "Blusa Branca", "nike", 49.9f, "Branco", "g");
 
 
             //criando lista de produtos para exibir o estoque disponível
@@ -34,37 +47,65 @@ namespace WeShop
             nomeusuario = Console.ReadLine();
         
   
-            Console.WriteLine("\nEi {0}, você é nosso\n"+
-                              "1 - Cliente!\n"+
-                              "2 - Parceiro!\n", nomeusuario);
+            Console.WriteLine("Olá " + nomeusuario + "!, você é \n");
+            Console.WriteLine("1 - Cliente");
+            Console.WriteLine("2 - Parceiro");
+            Console.WriteLine("\nDigite uma das opções acima");
+
 
             menuinicial = int.Parse(Console.ReadLine());   
 
-            if (menuinicial == 1)
+          while(menuinicial != null)
+          {
+            if (menuinicial == 1) // O MENU DO CLIENTE ENTRA AQUI
+            {   
+                Console.WriteLine("Dê uma olhadinha no nosso estoque!");
+                foreach(Produto p in roupas){
+                    Console.WriteLine(p.EstoqueAtual());
+                }        
+            }
+            else if(menuinicial == 2) // O MENU DO PARCEIRO ENTRA AQUI 
             {
-            Console.WriteLine("\nSeja Bem Vindo\n"+
-                              "\nDigite a opção desejada!\n"+
-                              "1 - Quero Comprar roupas!\n"+
-                              "2 - Quero comprar calçados!");
-                
-            }                         
-            else if (menuinicial == 2) {
+                Console.Write("De qual parceira você é ?\n");
 
-            
+                parceira = Console.ReadLine();
 
+                    if(parceira == "nike" || parceira == "adidas")
+                    {
+                        Console.WriteLine("\nQue bom termos você conosco!");
+                        Console.WriteLine("\nSeja bem vindo! O que gostaria de olhar?");
+                        Console.WriteLine("1 - Estoque diponível");
+                        Console.WriteLine("2 - Repor Estoque");
+                        Console.WriteLine("3 - Sair");
 
-            }
-            else if (menuinicial != 1 && menuinicial != 2){
+                        Console.WriteLine("\nDigite uma das opções acima");
+                        decisao = int.Parse(Console.ReadLine());
+                            
+                            if(decisao == 1)
+                            {
+                                Console.WriteLine("Apresentar estoque");
+                            }
+                            else if(decisao == 2 )
+                            {
+                                Console.WriteLine("Deseja repor quais produtos?");
+                                Console.WriteLine("1 - Jaqueta");
+                                Console.WriteLine("2 - Blusas");
+                            }
+                            else if(decisao == 3)
+                            {
+                                Console.WriteLine("\n/////////////////////////////////////////////////////////"); 
+                                Console.WriteLine("\nVocê Finalizou Atendimento, Muito Obrigado até a próxima!!\n");
+                                break;
+                            }
+                   
 
-                
-            }
-
-
-
-            //imprime o estoque
-            foreach(Produto p in roupas){
-                Console.WriteLine(p.EstoqueAtual());
-            }                      
+                    }        
+                    else if( parceira != "nike" || parceira != "adidas"){
+                        Console.WriteLine("Opção Inválida");
+                    }
+            }                 
+                   
         }
     }
+}
 }
