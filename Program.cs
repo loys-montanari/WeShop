@@ -90,6 +90,34 @@ namespace WeShop
                                 Console.WriteLine("Deseja repor quais produtos?");
                                 Console.WriteLine("1 - Jaqueta");
                                 Console.WriteLine("2 - Blusas");
+                                Console.WriteLine("3 - Todos");
+
+                                Console.WriteLine("\nDigite uma das opções acima");
+                                modelo = int.Parse(Console.ReadLine());
+
+                                if(modelo == 1)
+                                {
+                                    Console.WriteLine("As jaquetas foram repostas !")
+                                            // Apresentar qtd atual
+                                            // PARA REPOR TEM QUE TER UMA REGRA DE NÉGOCIO (se cheio n repor) !!! 
+                                }
+                                else if(modelo == 2)
+                                {
+                                    Console.WriteLine("As blusas foram repostas!")
+                                            // Apresentar qtd atual
+                                            // PARA REPOR TEM QUE TER UMA REGRA DE NÉGOCIO (se cheio n repor) !!! 
+                                }
+                                else if(modelo == 3)
+                                {
+                                    Console.WriteLine("Os produtos foram repostos!")
+                                        // Apresentar qtd atual
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Opção Inválida !!")
+                                    break;
+                                }
+
                             }
                             else if(decisao == 3)
                             {
@@ -98,7 +126,6 @@ namespace WeShop
                                 break;
                             }
                    
-
                     }        
                     else if( parceira != "nike" || parceira != "adidas"){
                         Console.WriteLine("Opção Inválida");
