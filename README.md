@@ -5,8 +5,8 @@ O comércio eletronico cresceu cerca de 72% no primeiro trimestre de 2021 no Bra
 
 # Membros
 
-<h3>- Loyslene montanari<h3>
-<h3>- Alexandre Baiocco<h3>
+- Loyslene montanari
+- Alexandre Baiocco
 
 04/11 - Relatório Semanal
   - Solidificação da ideia
