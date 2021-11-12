@@ -10,6 +10,7 @@ namespace WeShop
             string parceira;
             string nomeusuario;
             int decisao;
+            int modelo;
 
             //cadastro de produtos
             Produto blusa_branca_p  = new Produto(1, "Blusa Branca", "Nike", 59.9f, "Branco", "P");
@@ -97,31 +98,31 @@ namespace WeShop
 
                                 if(modelo == 1)
                                 {
-                                    Console.WriteLine("As jaquetas foram repostas !")
+                                    Console.WriteLine("As jaquetas foram repostas !");
                                             // Apresentar qtd atual
                                             // PARA REPOR TEM QUE TER UMA REGRA DE NÉGOCIO (se cheio n repor) !!! 
                                 }
                                 else if(modelo == 2)
                                 {
-                                    Console.WriteLine("As blusas foram repostas!")
+                                    Console.WriteLine("As blusas foram repostas!");
                                             // Apresentar qtd atual
                                             // PARA REPOR TEM QUE TER UMA REGRA DE NÉGOCIO (se cheio n repor) !!! 
                                 }
                                 else if(modelo == 3)
                                 {
-                                    Console.WriteLine("Os produtos foram repostos!")
+                                    Console.WriteLine("Os produtos foram repostos!");
                                         // Apresentar qtd atual
                                 }
                                 else
                                 {
-                                    Console.WriteLine("Opção Inválida !!")
+                                    Console.WriteLine("\nOpção Inválida !!");
                                     break;
                                 }
 
                             }
                             else if(decisao == 3)
                             {
-                                Console.WriteLine("\n/////////////////////////////////////////////////////////"); 
+                                Console.WriteLine("\n--------------------{}--------------------"); 
                                 Console.WriteLine("\nVocê Finalizou Atendimento, Muito Obrigado até a próxima!!\n");
                                 break;
                             }
@@ -134,4 +135,5 @@ namespace WeShop
                    
         }
     }
+}
 }
