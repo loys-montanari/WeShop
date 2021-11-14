@@ -6,37 +6,37 @@ namespace WeShop
     {
         static void Main(string[] args)
         {
-            int menuinicial, decisao, modelo;
+            int menuinicial, decisao, modelo, qtd;
             string parceira, nomeusuario;
 
 
             //cadastro de produtos
-            Produto blusa_adidas   = new Produto(1, "Blusa Preta DryFit", "Adidas", 49.9f, "Preto", "P");
-            Produto jaqueta_adidas = new Produto(2, "Jaqueta Corta Vento Azul", "Adidas", 149.9f, "Azul", "P");
-            Produto calça_adidas   = new Produto(3, "Calça Cinza", "Adidas", 49.9f, "Cinza", "m");
-            
-            Produto blusa_nike     = new Produto(4, "Blusa Branca", "Nike", 49.9f, "Branco", "P");
-            Produto jaqueta_nike   = new Produto(5, "Jaqueta Moletom Preta", "Nike", 149.9f, "Preto", "P");
-            Produto calça_nike     = new Produto(6, "Calça Jogger", "Nike", 49.9f, "Azul", "m");
+            Produto blusa_adidas   = new Produto(1, "Blusa Preta DryFit", "Adidas", 49.9f, "Preto", "P","arquivos/blusa_adidas.txt");
+            Produto jaqueta_adidas = new Produto(2, "Jaqueta Corta Vento Azul", "Adidas", 149.9f, "Azul", "P","arquivos/jaqueta_adidas.txt");
+            Produto calca_adidas   = new Produto(3, "Calça Cinza", "Adidas", 49.9f, "Cinza", "m","arquivos/calca_adidas.txt");
+
+            Produto blusa_nike     = new Produto(4, "Blusa Branca", "Nike", 49.9f, "Branco", "P","arquivos/blusa_nike.txt");
+            Produto jaqueta_nike   = new Produto(5, "Jaqueta Moletom Preta", "Nike", 149.9f, "Preto", "P","arquivos/jaqueta_nike.txt");
+            Produto calca_nike     = new Produto(6, "Calça Jogger", "Nike", 49.9f, "Azul", "m","arquivos/calca_nike.txt");
 
             //criando lista de produtos para exibir o estoque disponível
             //Nike
             Produto[] Nike = new Produto[3];
             Nike[0] = blusa_nike;
             Nike[1] = jaqueta_nike;
-            Nike[2] = calça_nike;
+            Nike[2] = calca_nike;
 
             Produto[] Adidas = new Produto[3];
             Adidas[0] = blusa_adidas;
             Adidas[1] = jaqueta_adidas;
-            Adidas[2] = calça_adidas;
+            Adidas[2] = calca_adidas;
 
-            blusa_adidas.EntradaProduto(1);
-            jaqueta_adidas.EntradaProduto(1);
-            calça_adidas.EntradaProduto(1);
-            blusa_nike.EntradaProduto(2);
-            jaqueta_nike.EntradaProduto(3);
-            calça_nike.EntradaProduto(3);
+            blusa_adidas.setQuantidade();
+            jaqueta_adidas.setQuantidade();
+            calca_adidas.setQuantidade();
+            blusa_nike.setQuantidade();
+            jaqueta_nike.setQuantidade();
+            calca_nike.setQuantidade();
 
             //inicialização da aplicação
             Console.WriteLine("\nSeja Bem Vindo\n" +
@@ -57,7 +57,7 @@ namespace WeShop
                 if (menuinicial == 1) // O MENU DO CLIENTE ENTRA AQUI
                 {
                     ListaCompras lista = new ListaCompras();
-                    int cod, qtd, i, menucompra;
+                    int cod,  i, menucompra;
 
 
                     Console.WriteLine("Ei " + nomeusuario + "dê uma olhadinha nos nossos produtos!");
@@ -81,7 +81,6 @@ namespace WeShop
 
                     do
                     {
-
                         menucompra = 1;
 
                         Console.WriteLine("Codigo do produto:");
@@ -89,10 +88,9 @@ namespace WeShop
 
                         if (cod == 1)      //blusa_adidas
                         {
-
                             Console.WriteLine("Quantidade:");
                             qtd = int.Parse(Console.ReadLine());
-                            
+
                             if (blusa_adidas.getDisponivel() - qtd >= 0)
                             {
                                 blusa_adidas.SaidaProduto(qtd);
@@ -102,12 +100,13 @@ namespace WeShop
                                     lista.adicionar(blusa_adidas);
                                 }
                                 lista.imprimelista();
-                                Console.WriteLine("Total: " + lista.totalizar());
-                                Console.WriteLine("1 - Adicionar mais itens");
+                                Console.WriteLine("Total: R${0:0.00}", lista.totalizar());
+                                Console.WriteLine("1 - Continuar comprando");
                                 Console.WriteLine("2 - Finalizar Compra");
                                 menucompra = int.Parse(Console.ReadLine());
                             }
-                            else if (blusa_adidas.getDisponivel() == 0){
+                            else if (blusa_adidas.getDisponivel() == 0)
+                            {
                                 Console.WriteLine("Poxa, não temos mais {0}!", blusa_adidas.getProduto());
                             }
                             else
@@ -120,7 +119,7 @@ namespace WeShop
 
                             Console.WriteLine("Quantidade:");
                             qtd = int.Parse(Console.ReadLine());
-                            
+
                             if (jaqueta_adidas.getDisponivel() - qtd >= 0)
                             {
                                 jaqueta_adidas.SaidaProduto(qtd);
@@ -130,12 +129,13 @@ namespace WeShop
                                     lista.adicionar(jaqueta_adidas);
                                 }
                                 lista.imprimelista();
-                                Console.WriteLine("Total: " + lista.totalizar());
-                                Console.WriteLine("1 - Adicionar mais itens");
+                                Console.WriteLine("Total: R${0:0.00}", lista.totalizar());
+                                Console.WriteLine("1 - Continuar comprando");
                                 Console.WriteLine("2 - Finalizar Compra");
                                 menucompra = int.Parse(Console.ReadLine());
                             }
-                            else if (jaqueta_adidas.getDisponivel() == 0){
+                            else if (jaqueta_adidas.getDisponivel() == 0)
+                            {
                                 Console.WriteLine("Poxa, não temos mais {0}!", jaqueta_adidas.getProduto());
                             }
                             else
@@ -144,32 +144,33 @@ namespace WeShop
                             }
 
                         }
-                        else if (cod == 3) //calça_adidas
+                        else if (cod == 3) //calca_adidas
                         {
 
                             Console.WriteLine("Quantidade:");
                             qtd = int.Parse(Console.ReadLine());
-                            
-                            if (calça_adidas.getDisponivel() - qtd >= 0)
+
+                            if (calca_adidas.getDisponivel() - qtd >= 0)
                             {
-                                calça_adidas.SaidaProduto(qtd);
+                                calca_adidas.SaidaProduto(qtd);
 
                                 for (i = 1; i <= qtd; i++)
                                 {
-                                    lista.adicionar(calça_adidas);
+                                    lista.adicionar(calca_adidas);
                                 }
                                 lista.imprimelista();
-                                Console.WriteLine("Total: " + lista.totalizar());
-                                Console.WriteLine("1 - Adicionar mais itens");
+                                Console.WriteLine("Total: R${0:0.00}", lista.totalizar());
+                                Console.WriteLine("1 - Continuar comprando");
                                 Console.WriteLine("2 - Finalizar Compra");
                                 menucompra = int.Parse(Console.ReadLine());
                             }
-                            else if (calça_adidas.getDisponivel() == 0){
-                                Console.WriteLine("Poxa, não temos mais {0}!", calça_adidas.getProduto());
+                            else if (calca_adidas.getDisponivel() == 0)
+                            {
+                                Console.WriteLine("Poxa, não temos mais {0}!", calca_adidas.getProduto());
                             }
                             else
                             {
-                                Console.WriteLine("Poxa, não temos {0} {1}, escolha uma quantidade entre 0 e {2}!", qtd, calça_adidas.getProduto(), calça_adidas.getDisponivel());
+                                Console.WriteLine("Poxa, não temos {0} {1}, escolha uma quantidade entre 0 e {2}!", qtd, calca_adidas.getProduto(), calca_adidas.getDisponivel());
                             }
                         }
                         else if (cod == 4) //blusa_nike
@@ -178,7 +179,7 @@ namespace WeShop
 
                             Console.WriteLine("Quantidade:");
                             qtd = int.Parse(Console.ReadLine());
-                            
+
                             if (blusa_nike.getDisponivel() - qtd >= 0)
                             {
                                 blusa_nike.SaidaProduto(qtd);
@@ -188,12 +189,13 @@ namespace WeShop
                                     lista.adicionar(blusa_nike);
                                 }
                                 lista.imprimelista();
-                                Console.WriteLine("Total: " + lista.totalizar());
-                                Console.WriteLine("1 - Adicionar mais itens");
+                                Console.WriteLine("Total: R${0:0.00}", lista.totalizar());
+                                Console.WriteLine("1 - Continuar comprando");
                                 Console.WriteLine("2 - Finalizar Compra");
                                 menucompra = int.Parse(Console.ReadLine());
                             }
-                            else if (blusa_nike.getDisponivel() == 0){
+                            else if (blusa_nike.getDisponivel() == 0)
+                            {
                                 Console.WriteLine("Poxa, não temos mais {0}!", blusa_nike.getProduto());
                             }
                             else
@@ -206,7 +208,7 @@ namespace WeShop
 
                             Console.WriteLine("Quantidade:");
                             qtd = int.Parse(Console.ReadLine());
-                            
+
                             if (jaqueta_nike.getDisponivel() - qtd >= 0)
                             {
                                 jaqueta_nike.SaidaProduto(qtd);
@@ -216,12 +218,13 @@ namespace WeShop
                                     lista.adicionar(jaqueta_nike);
                                 }
                                 lista.imprimelista();
-                                Console.WriteLine("Total: " + lista.totalizar());
-                                Console.WriteLine("1 - Adicionar mais itens");
+                                Console.WriteLine("Total: R${0:0.00}", lista.totalizar());
+                                Console.WriteLine("1 - Continuar comprando");
                                 Console.WriteLine("2 - Finalizar Compra");
                                 menucompra = int.Parse(Console.ReadLine());
                             }
-                            else if (jaqueta_nike.getDisponivel() == 0){
+                            else if (jaqueta_nike.getDisponivel() == 0)
+                            {
                                 Console.WriteLine("Poxa, não temos mais {0}!", jaqueta_nike.getProduto());
                             }
                             else
@@ -230,107 +233,195 @@ namespace WeShop
                             }
 
                         }
-                        else if (cod == 6) //calça_nike
+                        else if (cod == 6) //calca_nike
                         {
 
                             Console.WriteLine("Quantidade:");
                             qtd = int.Parse(Console.ReadLine());
-                            
-                            if (calça_nike.getDisponivel() - qtd >= 0)
+
+                            if (calca_nike.getDisponivel() - qtd >= 0)
                             {
-                                calça_nike.SaidaProduto(qtd);
+                                calca_nike.SaidaProduto(qtd);
 
                                 for (i = 1; i <= qtd; i++)
                                 {
-                                    lista.adicionar(calça_nike);
+                                    lista.adicionar(calca_nike);
                                 }
                                 lista.imprimelista();
-                                Console.WriteLine("Total: " + lista.totalizar());
-                                Console.WriteLine("1 - Adicionar mais itens");
+                                Console.WriteLine("Total: R${0:0.00}", lista.totalizar());
+                                Console.WriteLine("1 - Continuar comprando");
                                 Console.WriteLine("2 - Finalizar Compra");
                                 menucompra = int.Parse(Console.ReadLine());
                             }
-                            else if (calça_nike.getDisponivel() == 0){
-                                Console.WriteLine("Poxa, não temos mais {0}!", calça_nike.getProduto());
+                            else if (calca_nike.getDisponivel() == 0)
+                            {
+                                Console.WriteLine("Poxa, não temos mais {0}!", calca_nike.getProduto());
                             }
                             else
                             {
-                                Console.WriteLine("Poxa, não temos {0} {1}, escolha uma quantidade entre 0 e {2}!", qtd, calça_nike.getProduto(), calça_nike.getDisponivel());
+                                Console.WriteLine("Poxa, não temos {0} {1}, escolha uma quantidade entre 0 e {2}!", qtd, calca_nike.getProduto(), calca_nike.getDisponivel());
                             }
 
                         }
+
                     } while (menucompra == 1);
 
+                    Console.WriteLine("\nObrigada por comprar conosco, {0}!", nomeusuario);
+                    Console.WriteLine("Seu pedido foi finalizado\n");
+                    lista.imprimelistafinal();
+                    Console.WriteLine("Total da compra: R${0:0.00}\n", lista.totalizar());
+                    menuinicial = 0;
                 }
 
                 else if (menuinicial == 2) // O MENU DO PARCEIRO ENTRA AQUI 
-                {
-                    Console.Write("De qual parceira você é ?\n");
+                {   string menuparceiro;
 
-                    parceira = Console.ReadLine();
+                    Console.WriteLine("De qual parceira você é ?\n");
+                    Console.WriteLine("Nike");
+                    Console.WriteLine("Adidas\n");
+                    parceira = Console.ReadLine().ToLower();
 
-                    if (parceira == "nike" || parceira == "adidas")
+                    if (parceira == "nike" || parceira == "adidas")// menu parceiro
                     {
                         Console.WriteLine("\nQue bom termos você conosco!");
                         Console.WriteLine("\nSeja bem vindo! O que gostaria de olhar?");
-                        Console.WriteLine("1 - Estoque diponível");
-                        Console.WriteLine("2 - Repor Estoque");
+                        Console.WriteLine("1 - Estoque atual");
+                        Console.WriteLine("2 - Repor Mercadorias");
                         Console.WriteLine("3 - Sair");
 
                         Console.WriteLine("\nDigite uma das opções acima");
                         decisao = int.Parse(Console.ReadLine());
-
-                        if (decisao == 1)
+                        
+                        do{
+                        if (decisao == 1) //estoque disponivel
                         {
-                            Console.WriteLine("Apresentar estoque");
+                            Console.WriteLine("Estoque Atual!\n");
+                            if (parceira == "nike")
+                            {
+                                Console.WriteLine("Nike");
+                                Console.WriteLine("____________________\n");
+                                foreach (Produto p in Nike)
+                                {
+                                    Console.WriteLine(p.EstoqueAtual());
+                                };
+                            }
+                            else if (parceira == "adidas"){
+                               
+                                Console.WriteLine("Adidas");
+                                Console.WriteLine("____________________\n");
+                                foreach (Produto p in Adidas)
+                                {
+                                    Console.WriteLine(p.EstoqueAtual());
+                                }; 
+                            }
+                            Console.WriteLine("Gostaria de repor alguma mercadoria? (S/N)");
+                            menuparceiro = Console.ReadLine().ToLower();
+                           
+                            if (menuparceiro == "s"){
+                                decisao = 2;
+                            }
+                            else if (menuparceiro == "n"){
+                                decisao = 3;
+                            }
                         }
-                        else if (decisao == 2)
+                        else if (decisao == 2) //repor mercadoria
                         {
                             Console.WriteLine("Deseja repor quais produtos?");
-                            Console.WriteLine("1 - Jaqueta");
-                            Console.WriteLine("2 - Blusas");
-                            Console.WriteLine("3 - Todos");
-
+                            Console.WriteLine("1 - Blusa");
+                            Console.WriteLine("2 - Jaqueta");
+                            Console.WriteLine("3 - calca");
+                            Console.WriteLine("4 - Todos");
                             Console.WriteLine("\nDigite uma das opções acima");
                             modelo = int.Parse(Console.ReadLine());
 
-                            if (modelo == 1)
-                            {
-                                Console.WriteLine("As jaquetas foram repostas !");
-                                // Apresentar qtd atual
-                                // PARA REPOR TEM QUE TER UMA REGRA DE NÉGOCIO (se cheio n repor) !!! 
+                            if (modelo == 1)      //blusas
+                            {   
+                                Console.WriteLine("Quantas blusas deseja adicionar ao estoque?");
+                                qtd = int.Parse(Console.ReadLine());
+                                switch (parceira){
+
+                                    case "nike": blusa_nike.EntradaProduto(qtd);
+                                    break;
+                                    case "adidas": blusa_adidas.EntradaProduto(qtd);
+                                    break;
+                                } 
+                                    Console.WriteLine("{0} Blusas adicionadas com sucesso!\n", qtd);
+                                    decisao = 1;                         
                             }
-                            else if (modelo == 2)
+                            else if (modelo == 2) //jaquetas
                             {
-                                Console.WriteLine("As blusas foram repostas!");
-                                // Apresentar qtd atual
-                                // PARA REPOR TEM QUE TER UMA REGRA DE NÉGOCIO (se cheio n repor) !!! 
+                                Console.WriteLine("Quantas jaquetas deseja adicionar ao estoque?");
+                                qtd = int.Parse(Console.ReadLine());
+                                switch (parceira){
+
+                                    case "nike": jaqueta_nike.EntradaProduto(qtd);
+                                    break;
+                                    case "adidas": jaqueta_adidas.EntradaProduto(qtd);
+                                    break;
+                                } 
+                                    Console.WriteLine("{0} jaquetas adicionadas com sucesso!\n", qtd);
+                                    decisao = 1; 
                             }
-                            else if (modelo == 3)
+                            else if (modelo == 3) //calças
                             {
-                                Console.WriteLine("Os produtos foram repostos!");
-                                // Apresentar qtd atual
+                                Console.WriteLine("Quantas calças deseja adicionar ao estoque?");
+                                qtd = int.Parse(Console.ReadLine());
+                                switch (parceira){
+
+                                    case "nike": calca_nike.EntradaProduto(qtd);
+                                    break;
+                                    case "adidas": calca_adidas.EntradaProduto(qtd);
+                                    break;
+                                } 
+                                    Console.WriteLine("{0} calças adicionadas com sucesso!\n", qtd);
+                                    decisao = 1; 
                             }
+                            else if (modelo == 4) //Todos
+                            {
+                                Console.WriteLine("Quantas preças de cada produto deseja adicionar ao estoque?");
+                                qtd = int.Parse(Console.ReadLine());
+                                switch (parceira){
+
+                                    case "nike": 
+                                    blusa_nike.EntradaProduto(qtd);
+                                    jaqueta_nike.EntradaProduto(qtd);
+                                    calca_nike.EntradaProduto(qtd);
+                                    break;
+                                    case "adidas": 
+                                    blusa_adidas.EntradaProduto(qtd);
+                                    jaqueta_adidas.EntradaProduto(qtd);
+                                    calca_adidas.EntradaProduto(qtd);
+                                    break;
+                                } 
+                                    Console.WriteLine("{0} Blusas\n"+
+                                                      "{0} Jaquetas\n"+
+                                                      "{0} Calças\n"+
+                                                      "adicionados ao estoque com sucesso!\n", qtd);
+                                    decisao = 1; 
+                            }                            
                             else
                             {
-                                Console.WriteLine("\nOpção Inválida !!");
-                                break;
+                                Console.WriteLine("\nDigite uma opção válida !!");
+                                modelo = int.Parse(Console.ReadLine());
                             }
 
                         }
-                        else if (decisao == 3)
+                        else if (decisao == 3) //finalizar atendimento
                         {
                             Console.WriteLine("\n--------------------{}--------------------");
                             Console.WriteLine("\nVocê Finalizou Atendimento, Muito Obrigado até a próxima!!\n");
                             break;
                         }
-
+                            menuinicial = 0;
+                        } while (decisao !=0);
                     }
-                    else if (parceira != "nike" || parceira != "adidas")
+                    else if (parceira != "nike" || parceira != "adidas")// parceiro inválido
                     {
-                        Console.WriteLine("Opção Inválida");
+                        Console.WriteLine("Digite uma opção válida!");
+                        parceira = Console.ReadLine();
                     }
                 }
+                menuinicial = 0;
 
             }
         }

@@ -1,5 +1,8 @@
 using System;
 using WeShop;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
     public class Produto
     {   
         private int codproduto;
@@ -7,9 +10,10 @@ using WeShop;
         private string marca;
         private int quantidadedisponivel;
         public float valor;
-       private string cor;
-       private string tamanho;     
-        public Produto( int cod, string desc, string m, float val, string c, string tam){ 
+        private string cor;
+        private string tamanho;     
+        private string arquivo;
+        public Produto( int cod, string desc, string m, float val, string c, string tam, string arqv){ 
           
           codproduto = cod;
           descricao = desc;
@@ -18,6 +22,7 @@ using WeShop;
           valor = val;
           cor = c;
           tamanho = tam;
+          arquivo = arqv;
 
         }
         public string getProduto(){
@@ -25,9 +30,31 @@ using WeShop;
         }
          public int getDisponivel(){
             return quantidadedisponivel;
+        }
+        public void setQuantidade(){
+            FileStream meuArq = new FileStream(arquivo, FileMode.Open, FileAccess.Read);
+
+            StreamReader sr = new StreamReader(meuArq, Encoding.UTF8);
+
+                int str = Convert.ToInt16(sr.ReadLine());
+                
+
+            sr.Close();
+            meuArq.Close();
+
+            quantidadedisponivel = str;            
         }       
         public void EntradaProduto(int qtd){             
             quantidadedisponivel = quantidadedisponivel + qtd;
+            FileStream meuArq = new FileStream( arquivo , FileMode.Open, FileAccess.Write);
+
+            StreamWriter sw = new StreamWriter(meuArq, Encoding.UTF8);
+
+            int valor = quantidadedisponivel;
+            sw.WriteLine(valor);
+            
+            sw.Close();
+            meuArq.Close();
         }      
         public string EstoqueAtual(){
 
@@ -49,7 +76,15 @@ using WeShop;
         }
         
         public void SaidaProduto(int qtd){
-             quantidadedisponivel = quantidadedisponivel - qtd;
+            quantidadedisponivel = quantidadedisponivel - qtd;
+            FileStream meuArq = new FileStream( arquivo , FileMode.Open, FileAccess.Write);
 
-       }
+            StreamWriter sw = new StreamWriter(meuArq, Encoding.UTF8);
+
+            int valor = quantidadedisponivel;
+            sw.WriteLine(valor);
+            
+            sw.Close();
+            meuArq.Close();
+    }
     }

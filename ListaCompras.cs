@@ -32,6 +32,13 @@ namespace WeShop
                 Console.WriteLine(Produto.produtocarrinho());
             }
         }
-
+        public void imprimelistafinal(){
+            
+            foreach (var Produto in lista){
+                
+                Console.WriteLine(Produto.produtocarrinho());
+            }
+             Console.WriteLine("____________________\n");
+        }
     }
 }
