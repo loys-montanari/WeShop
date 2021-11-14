@@ -10,7 +10,6 @@ namespace WeShop
         { 
             lista.Add(produto);
         }
-
         public double totalizar()
         {
             double total = 0;
@@ -21,7 +20,6 @@ namespace WeShop
 
             return total;
         }
-
         public void imprimelista(){
             
             Console.WriteLine("\nCarrinho de Compras!");

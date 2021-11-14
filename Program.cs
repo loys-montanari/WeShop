@@ -9,7 +9,6 @@ namespace WeShop
             int menuinicial, decisao, modelo, qtd;
             string parceira, nomeusuario;
 
-
             //cadastro de produtos
             Produto blusa_adidas   = new Produto(1, "Blusa Preta DryFit", "Adidas", 49.9f, "Preto", "P","arquivos/blusa_adidas.txt");
             Produto jaqueta_adidas = new Produto(2, "Jaqueta Corta Vento Azul", "Adidas", 149.9f, "Azul", "P","arquivos/jaqueta_adidas.txt");
@@ -44,7 +43,7 @@ namespace WeShop
 
             nomeusuario = Console.ReadLine();
 
-            Console.WriteLine("Olá " + nomeusuario + "!, você é \n");
+            Console.WriteLine("Olá " + nomeusuario + ", você é...\n");
             Console.WriteLine("1 - Cliente");
             Console.WriteLine("2 - Parceiro");
             Console.WriteLine("\nDigite uma das opções acima");
@@ -60,7 +59,7 @@ namespace WeShop
                     int cod,  i, menucompra;
 
 
-                    Console.WriteLine("Ei " + nomeusuario + "dê uma olhadinha nos nossos produtos!");
+                    Console.WriteLine("Ei " + nomeusuario + " dê uma olhadinha nos nossos produtos!");
 
                     Console.WriteLine("ADIDAS");
                     Console.WriteLine("____________________\n");
@@ -76,8 +75,7 @@ namespace WeShop
                     };
                     Console.WriteLine("Digite o Código do produto que deseja comprar\n" +
                                        "seguido da quantidade de unidades para adicionar\n" +
-                                       "os itens ao carrinho! Digite 0 à qualquer momento\n" +
-                                       "para finalizar sua compra!\n");
+                                       "os itens ao carrinho!");
 
                     do
                     {
