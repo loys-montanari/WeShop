@@ -23,10 +23,13 @@ namespace WeShop
         }
 
         public void imprimelista(){
+            
+            Console.WriteLine("\nCarrinho de Compras!");
+            Console.WriteLine("____________________\n");
 
             foreach (var Produto in lista){
-
-                Console.WriteLine(Produto.getProduto());
+                
+                Console.WriteLine(Produto.produtocarrinho());
             }
         }
 

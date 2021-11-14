@@ -1,4 +1,5 @@
-
+using System;
+using WeShop;
     public class Produto
     {   
         private int codproduto;
@@ -41,6 +42,14 @@
                                            return estoque;
         }    
     
+        public string produtocarrinho(){
+
+            string prodcarrinho = (descricao+"  R$"+ valor);
+            return prodcarrinho;
+        }
         
-        
+        public void SaidaProduto(int qtd){
+             quantidadedisponivel = quantidadedisponivel - qtd;
+
+       }
     }
