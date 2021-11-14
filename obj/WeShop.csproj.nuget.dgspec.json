@@ -1,27 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ryzen\\Documents\\GitHub\\WeShop\\WeShop.csproj": {}
+    "C:\\Users\\lamontanari\\source\\repos\\WeShop\\WeShop.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ryzen\\Documents\\GitHub\\WeShop\\WeShop.csproj": {
+    "C:\\Users\\lamontanari\\source\\repos\\WeShop\\WeShop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ryzen\\Documents\\GitHub\\WeShop\\WeShop.csproj",
+        "projectUniqueName": "C:\\Users\\lamontanari\\source\\repos\\WeShop\\WeShop.csproj",
         "projectName": "WeShop",
-        "projectPath": "C:\\Users\\Ryzen\\Documents\\GitHub\\WeShop\\WeShop.csproj",
-        "packagesPath": "C:\\Users\\Ryzen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ryzen\\Documents\\GitHub\\WeShop\\obj\\",
+        "projectPath": "C:\\Users\\lamontanari\\source\\repos\\WeShop\\WeShop.csproj",
+        "packagesPath": "C:\\Users\\lamontanari\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lamontanari\\source\\repos\\WeShop\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Ryzen\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\lamontanari\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
