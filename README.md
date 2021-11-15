@@ -20,3 +20,7 @@ O comércio eletronico cresceu cerca de 72% no primeiro trimestre de 2021 no Bra
   - finalização do menu
   - Implementação dos arquivos de Gravação/Leitura
   - Finalização do Projeto
+
+
+Link do vídeo youtube >> https://youtu.be/X3YpT1ZeFtg
+Link do vídeo drive >> https://drive.google.com/file/d/1XNcOy5XzMm-LvKNldzyCEy4vaWBXFBWz/view?usp=sharing
